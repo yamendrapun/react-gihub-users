@@ -1,14 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 
 const Form = (props) => {
+  const [username, setUsername] = useState("")
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    alert(username)
+  }
+
   return (
-    <form className="w-full max-w-sm mx-auto">
+    <form className="w-full max-w-sm mx-auto" onSubmit={handleSubmit}>
       <div className="mt-10 flex">
         <input
           type="text"
           placeholder="GitHub username"
           className="form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150"
           required
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
         />
         <button
           type="submit"
