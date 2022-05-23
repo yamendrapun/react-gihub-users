@@ -1,9 +1,14 @@
 import React from 'react';
 import Card from './Card';
+import { GitHubCard } from '../App';
 
-const CardList = (props) => (
+type CardListProps = {
+  cards: GitHubCard[]
+}
+
+const CardList = (props: CardListProps) => (
   <div id='container' className='mt-10'>
-    { props.cards.map((card) => (
+    {props.cards.map((card) => (
       <Card {...card} />
     ))}
   </div>
